@@ -7,25 +7,22 @@ import Loading from "./components/Loading/Loading.jsx";
 function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [convertedAmount, setConvertedAmount] = useState(0);
-  const [fetching, setFetching] = useState(false);
 
   const fetchData = (currency) => {
     setIsLoading(true);
-    setFetching(true);
     fetch(`http://api.nbp.pl/api/exchangerates/rates/A/${currency.code}`)
       .then((res) => res.json())
       .then((data) => {
         const rate = data?.rates?.[0]?.mid;
         if (rate) {
           const sum = parseFloat(currency.amount) * parseFloat(rate);
-          setIsLoading(false);
           setConvertedAmount(sum.toFixed(2));
-          setFetching(false);
         } else {
           alert("something went wrong");
         }
       })
-      .catch((error) => alert(error));
+      .catch((error) => alert(error))
+      .finally(() => setIsLoading(false));
   };
 
   return (
@@ -33,7 +30,7 @@ function App() {
       <div className="p-7 flex flex-col">
         <Title></Title>
         <div className="flex justify-around m-5 items-center">
-          <Form fetchData={fetchData} fetching={fetching}></Form>
+          <Form isLoading={isLoading} fetchData={fetchData}></Form>
           {isLoading ? (
             <Loading></Loading>
           ) : (
