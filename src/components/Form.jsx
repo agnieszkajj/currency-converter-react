@@ -1,4 +1,4 @@
-const Form = ({ fetchData }) => {
+const Form = ({ fetchData, fetching }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!e.target.amount.value || e.target.amount.value <= 0) {
@@ -26,6 +26,7 @@ const Form = ({ fetchData }) => {
         <option value="CHF">CHF</option>
       </select>
       <button
+        disabled={fetching}
         type="submit"
         className="rounded-md font-bold border-zinc-600  bg-zinc-200 px-2 py-1.5 ml-2 text-cyan-800"
       >
