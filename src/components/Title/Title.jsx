@@ -1,4 +1,4 @@
-import Logo from ".././assets/icons8-currency-exchange-64.png";
+import Logo from "../.././assets/icons8-currency-exchange-64.png";
 
 const Title = () => {
   return (

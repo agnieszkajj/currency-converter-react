@@ -1,8 +1,8 @@
 import { useState } from "react";
-import FinalAmount from "./components/FinalAmount.jsx";
-import Form from "./components/Form.jsx";
-import Title from "./components/Title.jsx";
-import Loading from "./components/Loading.jsx";
+import FinalAmount from "./components/FinalAmount/FinalAmount.jsx";
+import Form from "./components/Form/Form.jsx";
+import Title from "./components/Title/Title.jsx";
+import Loading from "./components/Loading/Loading.jsx";
 
 function App() {
   const [isLoading, setIsLoading] = useState(false);
