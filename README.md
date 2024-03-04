@@ -1,1 +1,1 @@
-[Currency Converter](https://gregarious-manatee-33bb78.netlify.app/)
+[Currency Converter](https://currencies-converterr.netlify.app/)
